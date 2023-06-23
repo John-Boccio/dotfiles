@@ -33,3 +33,9 @@ zsh_custom_path = DOTFILES_DIR / 'zsh-custom'
 if not zsh_custom_path.exists():
     raise ValueError(f'Missing zsh-custom directory {zsh_custom_path}')
 print(f'USER ACTION: Set ZSH_CUSTOM={zsh_custom_path} in {zshrc_path}')
+
+print()
+
+# Plugins for zsh
+plugins = "git fzf zsh-autosuggestions zsh-syntax-highlighting"
+print(f'USER ACTION: Set plugins=({plugins}) in {zshrc_path}')
