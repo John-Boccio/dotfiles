@@ -1,5 +1,5 @@
 # Theme
-ZSH_THEME="risto"
+ZSH_THEME="kafeitu"
 
 # Aliases
 alias ls='ls -l --color=auto'
