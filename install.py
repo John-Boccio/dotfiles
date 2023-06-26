@@ -61,12 +61,12 @@ ARG_ACTIONS = {
 }
 
 args_to_skip = set([arg for arg in ARG_ACTIONS.keys() if args.__dict__[f'no_{arg}']])
-print(args_to_skip)
 
+print('Beginning install script')
 for arg, action in ARG_ACTIONS.items():
+    print()
     if arg in args_to_skip:
-        print(f'{arg} set, skipping')
+        print(f'Flag --no-{arg} set, skipping')
         continue
 
-    print()
     action()
