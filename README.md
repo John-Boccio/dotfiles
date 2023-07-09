@@ -5,7 +5,7 @@ This repository contains my source controlled dot files as well as links and inf
 ## oh-my-zsh
 Install link: https://ohmyz.sh/#install
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ```
 
 # Install script
