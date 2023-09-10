@@ -15,7 +15,7 @@ def create_symlink(target, symbolic_path):
     if symbolic_path.exists():
         print(f'Skipped symlinking {target_path} --> {symbolic_path} as it already exists')
 
-    success = run_command(f'ln -s {target_path} {symbolic_path}', shell=True)
+    success = run_command(f'ln -s {target_path} {symbolic_path}')
     print(f'Symlinking {target_path} --> {symbolic_path}: success = {success}')
 
 

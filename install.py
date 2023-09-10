@@ -1,3 +1,4 @@
+import argparse
 import subprocess
 from pathlib import Path
 from sys import platform
@@ -40,6 +41,7 @@ def install_rust() -> bool:
 
 def install_zellij() -> bool:
     success = run_command(f'cargo install --locked zellij')
+    create_symlink('zellij', '~/.config/zellij')
     return success
 
 
