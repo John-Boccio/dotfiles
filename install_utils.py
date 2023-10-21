@@ -16,23 +16,33 @@ def create_symlink(target, symbolic_path):
         print(f'Skipped symlinking {target_path} --> {symbolic_path} as it already exists')
 
     success = run_command(f'ln -s {target_path} {symbolic_path}')
-    print(f'Symlinking {target_path} --> {symbolic_path}: success = {success}')
+    print(f'Symlinking {target_path} --> {symbolic_path}: {"SUCCESS" if success else "FAILURE"}')
 
 
 def run_command(command: str, print_to_console: bool=True) -> bool:
     print(f'Running command: \"{command}\"')
-    ret = subprocess.run(command, shell=True, capture_output=True, text=True)
-    stdout = ret.stdout.strip()
-    stderr = ret.stderr.strip()
+    ret = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, universal_newlines=True)
 
-    success = (ret.returncode == 0)
-    if not success:
-        print(f'{ERROR_STR} Command failed')
-    if print_to_console or not success:
-        print('Command output:')
-        print(stdout)
-    if not success:
-        print('Command error:')
-        print(stderr)
+    output = ''
+    for line in ret.stdout:
+        if print_to_console:
+            print(line, flush=True, end='')
+        output += line
+    for line in ret.stdin:
+        if print_to_console:
+            print(line, flush=True, end='')
+        output += line
+    for line in ret.stderr:
+        if print_to_console:
+            print(line, flush=True, end='')
+        output += line
 
-    return success
+    ret.stdin.closer()
+
+    ret.wait()
+
+    if ret.returncode != 0:
+        print(f'{ERROR_STR} Command failed: {ret.args}, return code = {ret.returncode}\n')
+
+    return (ret.returncode == 0)
+

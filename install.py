@@ -50,7 +50,10 @@ install_functions = [install_helix, install_zsh, install_rust, install_zellij]
 for idx, install_fn in enumerate(install_functions):
     installing_name = install_fn.__name__.split('_')[1]
 
-    print(f'Installing {installing_name}')
+    should_install = input(f'Install {installing_name}?\n[y/N] ').lower() == 'y'
+    if not should_install:
+        continue
+
     success = install_fn()
     if success:
         print(f'\033[92mInstalled successfully\033[0m')
