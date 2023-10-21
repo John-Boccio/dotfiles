@@ -1,6 +1,6 @@
 #/usr/bin/env bash
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ZSHRC_PATH="$HOME/.zshrc"
 OH_MY_ZSH_PATH="$HOME/.oh-my-zsh"
@@ -16,4 +16,6 @@ else
 	echo "$ZSH_CUSTOM was not found"
 	exit 1
 fi
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
