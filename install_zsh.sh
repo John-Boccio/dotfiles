@@ -26,3 +26,14 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+echo "Modify .zshrc plugins to contain 
+
+plugins=(
+	git
+	fzf
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
+
+"
+

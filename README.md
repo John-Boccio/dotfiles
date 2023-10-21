@@ -4,10 +4,7 @@ This repository contains my source controlled dot files as well as links and inf
 
 ## oh-my-zsh
 Install link: https://ohmyz.sh/#install
-```
-
-```
 
 # Install script
-To install the dot files, run `python3 install.py` from the top level directory and follow the instructions in the output.
+To install the dot files, the shell shell scripts.
 
